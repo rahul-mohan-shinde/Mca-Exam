@@ -27,6 +27,7 @@
 | `ssh-add ~/.ssh/id_ed25519`        | SSH key ko agent me add karta hai            |
 | `ssh-add ~/.ssh/id_ed25519_bot`    | Second account ki SSH key add karta hai      |
 | `type ~/.ssh/id_ed25519.pub`       | Public SSH key dikhata hai (GitHub ke liye)  |
+| 'type C:\Users\rahul\.ssh\config'  | see all your ssh accounts                    |
 | `ssh -T git@github.com`            | SSH authentication test karta hai            |
 | `ssh -T github-main`               | Primary account ka SSH test                  |
 | `ssh -T github-bot`                | Second account ka SSH test                   |
