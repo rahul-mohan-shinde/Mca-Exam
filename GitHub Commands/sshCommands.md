@@ -1,5 +1,9 @@
 
 ```
+git config user.name "Rahul-bot-star-sudo"
+git config user.email "rshinde64470@gmail.com"
+git config user.signingkey GPG_B
+
 git config user.signingkey
 
 - GPG Key 1  
