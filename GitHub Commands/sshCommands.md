@@ -1,4 +1,13 @@
 
+```
+git remote add origin git@github-bot:Rahul-bot-star-sudo/REPO_NAME.git
+
+1️⃣ Primary Account — rahul-mohan-shinde
+git@github-main:rahul-mohan-shinde/REPO_NAME.git
+
+✅ 2️⃣ Second Account — Rahul-bot-star-sudo
+git@github-bot:Rahul-bot-star-sudo/REPO_NAME.git
+```
 ---
 
 # 🧾 Git + SSH Commands Summary (Complete List)
