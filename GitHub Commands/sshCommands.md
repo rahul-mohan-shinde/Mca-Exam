@@ -9,7 +9,7 @@ git config user.signingkey
 - GPG Key 2  
   - Email: rshinde64470@gmail.com  
   - Key ID: 0EDFECBA
-  
+
 ---
 
 git remote add origin git@github-bot:Rahul-bot-star-sudo/REPO_NAME.git
@@ -84,5 +84,62 @@ git@github-bot:Rahul-bot-star-sudo/REPO_NAME.git
 
 > **Git push command same rehti hai,
 > account decide hota hai SSH key + remote URL se.**
+
+---
+
+# 🔐 GPG COMMANDS – COMPLETE LIST (WITH USE)
+
+| #  | Command                                        | Use (kya kaam karta hai)                                      |
+| -- | ---------------------------------------------- | ------------------------------------------------------------- |
+| 1  | `gpg --version`                                | Check karta hai GPG install hai ya nahi                       |
+| 2  | `gpg --full-generate-key`                      | New GPG key generate karta hai (recommended method)           |
+| 3  | `gpg --list-secret-keys --keyid-format=long`   | System me jitni **private (secret) GPG keys** hain unki list  |
+| 4  | `gpg --list-keys --keyid-format=long`          | System me jitni **public GPG keys** hain unki list            |
+| 5  | `gpg --armor --export <KEY_ID>`                | Public GPG key export karta hai (GitHub me add karne ke liye) |
+| 6  | `git config --global user.signingkey <KEY_ID>` | Default (global) GPG key set karta hai                        |
+| 7  | `git config user.signingkey <KEY_ID>`          | **Current repo** ke liye GPG key set karta hai                |
+| 8  | `git config --global commit.gpgsign true`      | Har commit automatically GPG se sign kare                     |
+| 9  | `git config --global commit.gpgsign false`     | Auto-sign disable karta hai                                   |
+| 10 | `git commit -S -m "message"`                   | Ek commit ko manually GPG sign karta hai                      |
+| 11 | `git commit --amend -S --no-edit`              | Last commit ko dubara GPG sign karta hai                      |
+| 12 | `git show --show-signature`                    | Commit ka GPG signature verify karta hai                      |
+| 13 | `git show --no-patch --pretty=full`            | Commit ka **author, email, signer** clearly dikhata hai       |
+| 14 | `git config user.email`                        | Current repo ka commit email check karta hai                  |
+| 15 | `git config --global user.email`               | Global commit email check karta hai                           |
+| 16 | `gpg --delete-secret-key <KEY_ID>`             | Secret (private) GPG key delete karta hai ⚠️                  |
+| 17 | `gpg --delete-key <KEY_ID>`                    | Public GPG key delete karta hai                               |
+
+---
+
+# 🧠 MOST IMPORTANT COMMANDS (EXAM / INTERVIEW)
+
+### 🔹 Active GPG keys dekhna
+
+```bash
+gpg --list-secret-keys --keyid-format=long
+```
+
+### 🔹 Repo ke liye GPG switch karna
+
+```bash
+git config user.signingkey GPG_B
+git config user.email "second@email.com"
+```
+
+### 🔹 Commit verify check karna
+
+```bash
+git show --show-signature
+```
+
+---
+
+# ⚠️ GOLDEN RULES (1 line each)
+
+* **GPG sirf commit sign karta hai**
+* **Push ka GPG se koi relation nahi**
+* **Commit email GitHub me verified honi chahiye**
+* **Secret key kabhi share nahi karni**
+* **Public key hi GitHub me add hoti hai**
 
 ---
