@@ -1,5 +1,15 @@
 
 ```
+git config user.signingkey
+
+- GPG Key 1  
+  - Email: rahulshinde2577@gmail.com  
+  - Key ID: BA9A8B20F3DC84AA
+
+- GPG Key 2  
+  - Email: rshinde64470@gmail.com  
+  - Key ID: 0EDFECBA
+
 git remote add origin git@github-bot:Rahul-bot-star-sudo/REPO_NAME.git
 
 1️⃣ Primary Account — rahul-mohan-shinde
