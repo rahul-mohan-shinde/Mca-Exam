@@ -3,10 +3,12 @@
 
 ## 🔹 **Q1: Arrays & Strings**
 
-* [Q1 (a) Smallest and Largest Element of an Array](#q1-a-find-smallest-and-largest-element-in-an-array)
-* [Q1 (b) String Manipulation Using Arrays](#q1-b-discuss-string-manipulation-using-arrays)
-* [Q1 (c) Sparse Matrix Algorithm](#q1-c-algorithm-to-check-whether-a-matrix-is-a-sparse-matrix-or-not)
-* [Q1 (d) Representation of 2D Array in Memory](#q1-d-representation-of-a-2d-array-in-memory)
+## 📘 DSA Question Index
+
+1. [Q1 (a) Smallest & Largest Element](#a-write-an-algorithm-to-print-the-smallest-and-largest-element-of-an-array)
+2. [Q1 (b) String Manipulation Using Arrays](#b-discuss-string-manipulation-using-arrays)
+3. [Q1 (c) Sparse Matrix Algorithm](#c-write-an-algorithm-to-check-whether-a-matrix-is-a-sparse-matrix-or-not)
+4. [Q1 (d) 2D Array Memory Representation](#d-explain-the-representation-of-a-2d-array-in-the-memory-with-proper-example)
 
 ---
 
