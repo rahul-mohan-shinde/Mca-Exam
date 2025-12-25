@@ -33,8 +33,9 @@
 * Ideal for **last-day revision**
 
 ---
-
+<a id="q1-b"></a>
 ### **b) Discuss string manipulation using arrays**
+
 ---
 
 ### **Common String Manipulation Operations Using Arrays**
@@ -82,7 +83,7 @@ String manipulation using arrays provides full control over individual character
 
 ---
 
-
+<a id="q1-c"></a>
 ### **c) Algorithm to Check Whether a Matrix is a Sparse Matrix or Not** **[6]**
 
 A **sparse matrix** is a matrix in which the number of **zero elements is greater than the number of non-zero elements**.
@@ -129,7 +130,7 @@ A **sparse matrix** is a matrix in which the number of **zero elements is greate
 
 ---
 
-
+<a id="q1-d"></a>
 ### **d) Representation of a 2D Array in Memory (with Example)** **[4]**
 
 A **2D array** is stored in **linear (one-dimensional) memory**. Although it looks like a matrix (rows and columns), the elements are stored **sequentially** in memory. There are two common methods to represent a 2D array in memory:
@@ -200,7 +201,7 @@ Address(A[i][j]) = Base + [(j × number_of_rows) + i] × size_of_element
 In a **circular linked list**, the last node points back to the **first node**.
 
 ---
-
+<a id="q2-a-i"></a>
 ## **i) Insertion in Between the List**
 
 ### **Algorithm: Insert_Between_Circular_List**
@@ -216,7 +217,7 @@ In a **circular linked list**, the last node points back to the **first node**.
 **Step 7:** Stop
 
 ---
-
+<a id="q2-a-ii"></a>
 ## **ii) Insertion at the End of the List**
 
 ### **Algorithm: Insert_End_Circular_List**
@@ -251,6 +252,7 @@ NEW→next ← HEAD
 
 ---
 
+<a id="q2-b"></a>
 ### **b) Differentiate between Singly Linked List and Circular Linked List** **[4]**
 
 | **Basis**          | **Singly Linked List**     | **Circular Linked List**                                     |
@@ -271,7 +273,7 @@ NEW→next ← HEAD
 ---
 
 **OR**
-
+<a id="q2-c"></a>
 ### **c) Algorithm to Merge Two Sorted Linked Lists into a Third Sorted List** **[6]**
 
 Given two **sorted linked lists A and B**, the task is to create a third linked list **C** such that all elements of A and B are merged in **sorted order**. If one list is exhausted, the remaining elements of the other list are appended to C.
@@ -319,6 +321,7 @@ Given two **sorted linked lists A and B**, the task is to create a third linked 
 * **O(1)** (if nodes are reused)
 
 ---
+<a id="q2-d"></a>
 ### **d) Algorithm to Delete a Node from the End of a Doubly Linked List** **[4]**
 
 A **doubly linked list** contains nodes with three fields: **previous pointer**, **data**, and **next pointer**.
@@ -381,7 +384,7 @@ A **doubly linked list** contains nodes with three fields: **previous pointer**,
 
 
 ## **Q3)**
-
+<a id="q3-a"></a>
 ### **a) Algorithm to Perform All Operations of a Queue Using Static Allocation** **[6]**
 
 A **queue** is a linear data structure that follows **FIFO (First In First Out)** principle.
@@ -460,6 +463,7 @@ MAX   ← size of array
 * Operations follow FIFO order.
 
 ---
+<a id="q3-b"></a>
 ### **b) Applications of Stack (with Examples)** **[4]**
 
 A **stack** is a linear data structure that follows the **LIFO (Last In First Out)** principle.
@@ -515,6 +519,7 @@ Stacks help in managing data where **last inserted element is processed first**.
 ---
 
 **OR**
+<a id="q3-c"></a>
 ### **c) Convert Infix to Postfix Using Stack** **[6]**
 
 **Given Infix Expression:**
@@ -574,7 +579,7 @@ ABCD/E*B*F-*G+
 * Operands are directly added to postfix expression.
 
 ---
-
+<a id="q3-d"></a>
 ### **d) Applications of a Linear Queue** **[4]**
 
 A **linear queue** is a linear data structure that follows the **FIFO (First In First Out)** principle.
@@ -612,6 +617,7 @@ Linear queue efficiently manages tasks in sequential order.
 ---
 
 ## **Q4)**
+<a id="q4-a"></a>
 ### **a) Algorithm to Perform DFS (Depth First Search) on a Graph** **[6]**
 
 **Depth First Search (DFS)** is a graph traversal technique that explores a vertex and then moves to one of its **unvisited adjacent vertices**, continuing this process until no further vertices are left to explore. DFS uses a **stack** (either explicit stack or recursion).
@@ -820,6 +826,7 @@ BF = height(left) − height(right)
 
 ---
 
+<a id="q4-d"></a>
 ### **d) Comparison between BFS and DFS** **[4]**
 
 | **Basis**               | **BFS (Breadth First Search)**          | **DFS (Depth First Search)**                     |
@@ -842,13 +849,16 @@ BF = height(left) − height(right)
 
 ## **Q5)**
 
-**a)** Write an algorithm to search an element in an array using binary search method. **[6]**
-25, 83, 4, 2, 75, 16, 45, 5, 99, 1
+<a id="q5-a"></a>
+### **a) Binary Search Algorithm** **[6]**
 
-**b)** Discuss all hash functions with examples. **[4]**
+<a id="q5-b"></a>
+### **b) Hash Functions with Examples** **[4]**
 
 **OR**
+<a id="q5-c"></a>
 ### **c) Bubble Sort Algorithm & Time Complexity** **[6]**
+
 
 **Given Array:**
 
@@ -908,6 +918,7 @@ After applying Bubble Sort, the sorted array is:
 * Not efficient for large datasets due to quadratic time complexity.
 
 ---
+<a id="q5-d"></a>
 ### **d) Create a Max Heap from the Given Elements** **[4]**
 
 **Given sequence:**
