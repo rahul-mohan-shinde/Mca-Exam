@@ -1,53 +1,29 @@
+1. [Q1 (a) Smallest & Largest Element](#q1-a)
+2. [Q1 (b) String Manipulation Using Arrays](#q1-b)
+3. [Q1 (c) Sparse Matrix Algorithm](#q1-c)
+4. [Q1 (d) 2D Array Memory Representation](#q1-d)
 
-# 📘 **DSA Question Links (Index / TOC)**
+5. [Q2 (a-i) Insert in Between – Circular Linked List](#q2-a-i)
+6. [Q2 (a-ii) Insert at End – Circular Linked List](#q2-a-ii)
+7. [Q2 (b) Singly vs Circular Linked List](#q2-b)
+8. [Q2 (c) Merge Two Sorted Linked Lists](#q2-c)
+9. [Q2 (d) Delete Node from End – Doubly Linked List](#q2-d)
 
-## 🔹 **Q1: Arrays & Strings**
+10. [Q3 (a) Queue Operations Using Static Allocation](#q3-a)
+11. [Q3 (b) Applications of Stack](#q3-b)
+12. [Q3 (c) Infix to Postfix Conversion](#q3-c)
+13. [Q3 (d) Applications of Linear Queue](#q3-d)
 
-## 📘 DSA Question Index
+14. [Q4 (a) DFS Algorithm](#q4-a)
+15. [Q4 (b) Binary Tree from Inorder & Preorder](#q4-b)
+16. [Q4 (c) AVL Tree Creation & Rotations](#q4-c)
+17. [Q4 (d) BFS vs DFS Comparison](#q4-d)
 
-1. [Q1 (a) Smallest & Largest Element](#a-write-an-algorithm-to-print-the-smallest-and-largest-element-of-an-array)
-2. [Q1 (b) String Manipulation Using Arrays](#b-discuss-string-manipulation-using-arrays)
-3. [Q1 (c) Sparse Matrix Algorithm](#c-write-an-algorithm-to-check-whether-a-matrix-is-a-sparse-matrix-or-not)
-4. [Q1 (d) 2D Array Memory Representation](#d-explain-the-representation-of-a-2d-array-in-the-memory-with-proper-example)
+18. [Q5 (a) Binary Search Algorithm](#q5-a)
+19. [Q5 (b) Hash Functions](#q5-b)
+20. [Q5 (c) Bubble Sort Algorithm](#q5-c)
+21. [Q5 (d) Max Heap Creation](#q5-d)
 
----
-
-## 🔹 **Q2: Linked Lists**
-
-* [Q2 (a-i) Insert in Between – Circular Linked List](#q2-a-i-insertion-in-between-the-circular-linked-list)
-* [Q2 (a-ii) Insert at End – Circular Linked List](#q2-a-ii-insertion-at-the-end-of-the-circular-linked-list)
-* [Q2 (b) Singly vs Circular Linked List](#q2-b-differentiate-between-singly-linked-list-and-circular-linked-list)
-* [Q2 (c) Merge Two Sorted Linked Lists](#q2-c-merge-two-sorted-linked-lists)
-* [Q2 (d) Delete Node from End – Doubly Linked List](#q2-d-delete-node-from-end-of-doubly-linked-list)
-
----
-
-## 🔹 **Q3: Stack & Queue**
-
-* [Q3 (a) Queue Operations Using Static Allocation](#q3-a-queue-operations-using-static-allocation)
-* [Q3 (b) Applications of Stack](#q3-b-applications-of-stack)
-* [Q3 (c) Infix to Postfix Conversion](#q3-c-infix-to-postfix-conversion-using-stack)
-* [Q3 (d) Applications of Linear Queue](#q3-d-applications-of-linear-queue)
-
----
-
-## 🔹 **Q4: Trees & Graphs**
-
-* [Q4 (a) DFS Algorithm](#q4-a-dfs-depth-first-search-algorithm)
-* [Q4 (b) Binary Tree from Inorder & Preorder](#q4-b-construct-binary-tree-from-inorder-and-preorder)
-* [Q4 (c) AVL Tree Creation & Rotations](#q4-c-avl-tree-insertion-and-rotations)
-* [Q4 (d) BFS vs DFS Comparison](#q4-d-comparison-between-bfs-and-dfs)
-
----
-
-## 🔹 **Q5: Searching, Sorting & Heap**
-
-* [Q5 (a) Binary Search Algorithm](#q5-a-binary-search-algorithm)
-* [Q5 (b) Hash Functions](#q5-b-hash-functions-with-examples)
-* [Q5 (c) Bubble Sort Algorithm & Complexity](#q5-c-bubble-sort-algorithm)
-* [Q5 (d) Max Heap Creation](#q5-d-create-max-heap)
-
----
 
 ## 🧠 **How to Use This**
 
