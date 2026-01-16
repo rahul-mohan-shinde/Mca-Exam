@@ -74,7 +74,7 @@ Here is a **simple, exam-ready solution** to:
 ## ✍ Exam Conclusion Line
 
 > **Using CSS media queries, the three-column layout adjusts automatically for smaller screens by changing the layout into a single column, making the design responsive for mobile devices.**
-
+---
 ---
 
 If you want:
@@ -84,3 +84,50 @@ If you want:
 
 
 Bas bolo, Rahul 😊
+---
+Here is the **exact CSS code using media queries** to achieve:
+
+👉 **100% width on small screens (< 600px)**
+👉 **50% width on larger screens (≥ 600px)**
+
+---
+
+## ✅ CSS Code
+
+```css
+div {
+    width: 50%;
+    margin: auto;
+}
+
+/* For small screens */
+@media (max-width: 600px) {
+    div {
+        width: 100%;
+    }
+}
+```
+
+---
+
+## 🧠 How It Works
+
+* **Default (Desktop / Large screens)** → `width: 50%`
+* **When screen width ≤ 600px (Mobile)** → `width: 100%`
+* Media query overrides the default style on smaller devices.
+
+---
+
+## ✍ Exam Conclusion Line
+
+> **Using media queries, the div automatically changes its width based on screen size, making the layout responsive for both mobile and larger screens.**
+
+---
+
+If you want:
+👉 **HTML + CSS full example**
+👉 **Bootstrap version**
+👉 Or **short 2–3 line answer for theory paper**
+
+Bas bolo, Rahul 😊
+
