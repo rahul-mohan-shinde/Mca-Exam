@@ -1,0 +1,38 @@
+<div class="notification-center">
+  <div class="header">
+    <h2>Notifications</h2>
+    <div class="header-actions">
+      <button class="btn btn-sm" (click)="toggleUnreadFilter()">
+        {{ showUnreadOnly ? 'Show All' : 'Show Unread Only' }}
+      </button>
+      <button *ngIf="unreadCount > 0" class="btn btn-sm btn-primary" (click)="markAllAsRead()">
+        Mark All as Read
+      </button>
+    </div>
+  </div>
+
+  <div class="unread-count" *ngIf="unreadCount > 0">
+    You have {{ unreadCount }} unread notification(s)
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading notifications...</div>
+
+  <div *ngIf="!isLoading" class="notifications-list">
+    <div *ngFor="let notification of notifications" 
+         class="notification-card"
+         [class.unread]="!notification.is_read"
+         (click)="markAsRead(notification._id)">
+      <div class="notification-header">
+        <h4>{{ notification.title }}</h4>
+        <span *ngIf="!notification.is_read" class="unread-badge">New</span>
+      </div>
+      <p class="notification-message">{{ notification.message }}</p>
+      <span class="notification-time">{{ notification.created_at | date:'short' }}</span>
+    </div>
+
+    <div *ngIf="notifications.length === 0" class="empty-state">
+      No notifications found.
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,70 @@
+.history {
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .attempts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .attempt-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .attempt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      h3 {
+        margin: 0;
+      }
+
+      .status-badge {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+
+        &.status-submitted {
+          background: #d4edda;
+          color: #155724;
+        }
+
+        &.status-in_progress {
+          background: #fff3cd;
+          color: #856404;
+        }
+      }
+    }
+
+    .attempt-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 15px;
+
+      .detail-item {
+        color: #666;
+      }
+    }
+
+    .attempt-actions {
+      margin-top: 15px;
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+  }
+}
+

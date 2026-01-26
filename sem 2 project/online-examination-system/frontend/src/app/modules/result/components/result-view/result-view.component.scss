@@ -1,0 +1,105 @@
+.result-view {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .result-header {
+    margin-bottom: 30px;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .result-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+
+      .summary-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+
+        h3 {
+          margin: 0 0 10px 0;
+          color: #666;
+          font-size: 14px;
+        }
+
+        .score, .percentage {
+          font-size: 32px;
+          font-weight: bold;
+          color: #667eea;
+          margin: 0;
+        }
+
+        .grade {
+          font-size: 32px;
+          font-weight: bold;
+          margin: 0;
+        }
+
+        .passed {
+          color: #28a745;
+          font-weight: bold;
+        }
+
+        .failed {
+          color: #dc3545;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .answers-section {
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .answer-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+
+      .question {
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      .answer-details {
+        .your-answer {
+          margin-bottom: 10px;
+          padding: 10px;
+          background: #f8f9fa;
+          border-radius: 4px;
+        }
+
+        .result-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .correct {
+            color: #28a745;
+            font-weight: bold;
+          }
+
+          .incorrect {
+            color: #dc3545;
+            font-weight: bold;
+          }
+
+          .marks {
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+}
+

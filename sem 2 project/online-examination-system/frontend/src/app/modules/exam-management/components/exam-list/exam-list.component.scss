@@ -1,0 +1,92 @@
+.exam-list {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .exams-container {
+    display: grid;
+    gap: 20px;
+  }
+
+  .exam-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .exam-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+
+      h3 {
+        margin: 0;
+        flex: 1;
+      }
+
+      .status-badge {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+
+        &.status-active {
+          background: #d4edda;
+          color: #155724;
+        }
+
+        &.status-scheduled {
+          background: #fff3cd;
+          color: #856404;
+        }
+
+        &.status-draft {
+          background: #e2e3e5;
+          color: #383d41;
+        }
+      }
+    }
+
+    .description {
+      color: #666;
+      margin: 10px 0;
+    }
+
+    .exam-meta {
+      display: flex;
+      gap: 15px;
+      margin: 15px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .exam-dates {
+      display: flex;
+      gap: 15px;
+      margin: 15px 0;
+      color: #999;
+      font-size: 12px;
+    }
+
+    .actions {
+      margin-top: 15px;
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+  }
+}
+

@@ -1,0 +1,53 @@
+<div class="result-view">
+  <div *ngIf="isLoading" class="loading">Loading result...</div>
+
+  <div *ngIf="!isLoading && result" class="result-content">
+    <div class="result-header">
+      <h1>Exam Result</h1>
+      <div class="result-summary">
+        <div class="summary-card">
+          <h3>Score</h3>
+          <p class="score">{{ result.attempt.marks_obtained }}/{{ result.attempt.total_marks }}</p>
+        </div>
+        <div class="summary-card">
+          <h3>Percentage</h3>
+          <p class="percentage">{{ result.attempt.percentage }}%</p>
+        </div>
+        <div class="summary-card">
+          <h3>Grade</h3>
+          <p class="grade" [style.color]="getGradeColor(result.attempt.grade)">
+            {{ result.attempt.grade }}
+          </p>
+        </div>
+        <div class="summary-card">
+          <h3>Status</h3>
+          <p [class.passed]="result.attempt.is_passed" [class.failed]="!result.attempt.is_passed">
+            {{ result.attempt.is_passed ? 'PASSED' : 'FAILED' }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="answers-section">
+      <h2>Answer Review</h2>
+      <div *ngFor="let answer of result.answers" class="answer-card">
+        <div class="question">
+          <strong>Q: {{ (answer.question_id as any).question_text }}</strong>
+        </div>
+        <div class="answer-details">
+          <div class="your-answer">
+            <strong>Your Answer:</strong>
+            <span>{{ answer.answer_text || 'Not answered' }}</span>
+          </div>
+          <div class="result-info">
+            <span [class.correct]="answer.is_correct" [class.incorrect]="!answer.is_correct">
+              {{ answer.is_correct ? '✓ Correct' : '✗ Incorrect' }}
+            </span>
+            <span class="marks">Marks: {{ answer.marks_obtained }}/{{ (answer.question_id as any).marks }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

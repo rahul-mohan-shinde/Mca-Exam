@@ -1,0 +1,47 @@
+<div class="history">
+  <h1>Exam History</h1>
+
+  <div *ngIf="isLoading" class="loading">Loading history...</div>
+
+  <div *ngIf="!isLoading" class="attempts-list">
+    <div *ngFor="let attempt of attempts" class="attempt-card">
+      <div class="attempt-header">
+        <h3>{{ (attempt.exam_id as any)?.exam_name }}</h3>
+        <span class="status-badge" [ngClass]="'status-' + attempt.status.toLowerCase()">
+          {{ attempt.status }}
+        </span>
+      </div>
+
+      <div class="attempt-details">
+        <div class="detail-item">
+          <strong>Started:</strong> {{ attempt.start_time | date:'short' }}
+        </div>
+        <div class="detail-item" *ngIf="attempt.submitted_at">
+          <strong>Submitted:</strong> {{ attempt.submitted_at | date:'short' }}
+        </div>
+        <div class="detail-item" *ngIf="attempt.marks_obtained !== undefined">
+          <strong>Score:</strong> {{ attempt.marks_obtained }}/{{ attempt.total_marks }}
+        </div>
+        <div class="detail-item" *ngIf="attempt.percentage !== undefined">
+          <strong>Percentage:</strong> {{ attempt.percentage }}%
+        </div>
+        <div class="detail-item" *ngIf="attempt.grade">
+          <strong>Grade:</strong> {{ attempt.grade }}
+        </div>
+      </div>
+
+      <div class="attempt-actions">
+        <button *ngIf="attempt.status === 'SUBMITTED'" 
+                class="btn btn-primary" 
+                (click)="viewResult(attempt._id)">
+          View Result
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="attempts.length === 0" class="empty-state">
+      No exam attempts found.
+    </div>
+  </div>
+</div>
+

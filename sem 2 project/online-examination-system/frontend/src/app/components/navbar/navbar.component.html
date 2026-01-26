@@ -1,0 +1,40 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <h2>📚 Online Examination System</h2>
+  </div>
+
+  <div class="navbar-menu" *ngIf="isAuthenticated">
+    <!-- Admin Menu -->
+    <div class="nav-links" *ngIf="isAdmin()">
+      <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Dashboard
+      </a>
+      <a routerLink="/questions" routerLinkActive="active">Questions</a>
+      <a routerLink="/exams" routerLinkActive="active">Exams</a>
+      <a routerLink="/notifications" routerLinkActive="active">
+        Notifications
+        <span *ngIf="currentUser?.unreadCount > 0" class="badge">{{ currentUser?.unreadCount }}</span>
+      </a>
+    </div>
+
+    <!-- Student Menu -->
+    <div class="nav-links" *ngIf="isStudent()">
+      <a routerLink="/student" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Dashboard
+      </a>
+      <a routerLink="/student/history" routerLinkActive="active">History</a>
+      <a routerLink="/notifications" routerLinkActive="active">
+        Notifications
+        <span *ngIf="currentUser?.unreadCount > 0" class="badge">{{ currentUser?.unreadCount }}</span>
+      </a>
+    </div>
+
+    <!-- User Info -->
+    <div class="user-info">
+      <span class="user-name">{{ currentUser?.name || 'User' }}</span>
+      <span class="user-role">{{ getUserRole() }}</span>
+      <button class="btn btn-sm btn-outline" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,41 @@
+<div class="question-list">
+  <div class="header">
+    <h2>Question Bank</h2>
+    <button class="btn btn-primary" routerLink="/questions/create">Add New Question</button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading questions...</div>
+
+  <div *ngIf="!isLoading" class="questions-container">
+    <div *ngFor="let question of questions" class="question-card">
+      <div class="question-header">
+        <h3>{{ question.question_text }}</h3>
+        <span class="badge" [ngClass]="'badge-' + question.difficulty_level.toLowerCase()">
+          {{ question.difficulty_level }}
+        </span>
+      </div>
+      
+      <div class="question-meta">
+        <span>Type: {{ question.question_type }}</span>
+        <span>Marks: {{ question.marks }}</span>
+      </div>
+
+      <div *ngIf="question.question_type === 'MCQ' && question.options" class="options">
+        <div *ngFor="let option of question.options" class="option">
+          {{ option.option_text }}
+          <span *ngIf="option.is_correct" class="correct-badge">✓ Correct</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-sm" (click)="selectQuestion(question)">Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteQuestion(question._id!)">Delete</button>
+      </div>
+    </div>
+
+    <div *ngIf="questions.length === 0" class="empty-state">
+      No questions found. Create your first question!
+    </div>
+  </div>
+</div>
+

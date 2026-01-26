@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System - Test Launcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .status-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: #dc3545;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-indicator.online {
+            background: #28a745;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .test-button {
+            display: block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .test-button:active {
+            transform: translateY(0);
+        }
+        
+        .test-button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .test-button.success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .test-button.warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .info-box strong {
+            color: #2196F3;
+        }
+        
+        .command-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .checklist li.checked:before {
+            content: "✅ ";
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Online Examination System</h1>
+        <p class="subtitle">Test Launcher - Click to Test All Features</p>
+        
+        <!-- Status Section -->
+        <div class="status-section">
+            <h3 style="margin-bottom: 15px;">📊 Server Status</h3>
+            <div class="status-item">
+                <div class="status-indicator" id="backend-status"></div>
+                <div>
+                    <strong>Backend Server:</strong> 
+                    <span id="backend-text">Checking...</span>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="status-indicator" id="frontend-status"></div>
+                <div>
+                    <strong>Frontend Server:</strong> 
+                    <span id="frontend-text">Checking...</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Start -->
+        <div class="section">
+            <h2 class="section-title">🚀 Quick Start</h2>
+            <div class="button-grid">
+                <a href="http://localhost:4200" target="_blank" class="test-button success">
+                    🏠 Open Frontend App
+                </a>
+                <a href="http://localhost:3000/health" target="_blank" class="test-button secondary">
+                    🔍 Check Backend Health
+                </a>
+                <a href="http://localhost:3000/api/auth/login" target="_blank" class="test-button">
+                    🔐 API Endpoint Test
+                </a>
+            </div>
+        </div>
+        
+        <!-- Authentication Testing -->
+        <div class="section">
+            <h2 class="section-title">🔐 Authentication Testing</h2>
+            <div class="button-grid">
+                <a href="http://localhost:4200/register" target="_blank" class="test-button">
+                    📝 Test Registration
+                </a>
+                <a href="http://localhost:4200/login" target="_blank" class="test-button">
+                    🔑 Test Login
+                </a>
+            </div>
+            <div class="info-box">
+                <strong>Test Credentials:</strong><br>
+                Email: test@example.com<br>
+                Password: Test@123
+            </div>
+        </div>
+        
+        <!-- Admin Features -->
+        <div class="section">
+            <h2 class="section-title">👨‍💼 Admin Features</h2>
+            <div class="button-grid">
+                <a href="http://localhost:4200/admin" target="_blank" class="test-button success">
+                    📊 Admin Dashboard
+                </a>
+                <a href="http://localhost:4200/questions" target="_blank" class="test-button">
+                    ❓ Question Management
+                </a>
+                <a href="http://localhost:4200/questions/create" target="_blank" class="test-button">
+                    ➕ Create Question
+                </a>
+                <a href="http://localhost:4200/exams" target="_blank" class="test-button">
+                    📋 Exam Management
+                </a>
+                <a href="http://localhost:4200/exams/create" target="_blank" class="test-button">
+                    ➕ Create Exam
+                </a>
+                <a href="http://localhost:4200/notifications" target="_blank" class="test-button secondary">
+                    🔔 Notifications
+                </a>
+            </div>
+        </div>
+        
+        <!-- Student Features -->
+        <div class="section">
+            <h2 class="section-title">👨‍🎓 Student Features</h2>
+            <div class="button-grid">
+                <a href="http://localhost:4200/student" target="_blank" class="test-button success">
+                    🏠 Student Dashboard
+                </a>
+                <a href="http://localhost:4200/student/history" target="_blank" class="test-button">
+                    📜 Exam History
+                </a>
+            </div>
+        </div>
+        
+        <!-- API Testing -->
+        <div class="section">
+            <h2 class="section-title">🔌 API Endpoints</h2>
+            <div class="button-grid">
+                <a href="http://localhost:3000/api/auth/login" target="_blank" class="test-button">
+                    POST /api/auth/login
+                </a>
+                <a href="http://localhost:3000/api/auth/register" target="_blank" class="test-button">
+                    POST /api/auth/register
+                </a>
+                <a href="http://localhost:3000/api/questions/questions" target="_blank" class="test-button">
+                    GET /api/questions/questions
+                </a>
+                <a href="http://localhost:3000/api/exams/exams" target="_blank" class="test-button">
+                    GET /api/exams/exams
+                </a>
+            </div>
+        </div>
+        
+        <!-- Testing Checklist -->
+        <div class="section">
+            <h2 class="section-title">✅ Testing Checklist</h2>
+            <ul class="checklist">
+                <li id="check-1">Backend server running (port 3000)</li>
+                <li id="check-2">Frontend server running (port 4200)</li>
+                <li id="check-3">User registration working</li>
+                <li id="check-4">User login working</li>
+                <li id="check-5">Question creation working</li>
+                <li id="check-6">Exam creation working</li>
+                <li id="check-7">Student exam taking working</li>
+                <li id="check-8">Results calculation working</li>
+            </ul>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="section">
+            <h2 class="section-title">📖 Instructions</h2>
+            <div class="info-box">
+                <strong>Step 1:</strong> Run START_PROJECT.bat to start both servers<br><br>
+                <strong>Step 2:</strong> Wait for both servers to start (green indicators above)<br><br>
+                <strong>Step 3:</strong> Click any button above to test that feature<br><br>
+                <strong>Step 4:</strong> Check the checklist items as you test
+            </div>
+            
+            <div class="command-box">
+                # To start manually:<br>
+                # Terminal 1: cd backend && npm run dev<br>
+                # Terminal 2: cd frontend && ng serve
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check server status
+        function checkBackendStatus() {
+            fetch('http://localhost:3000/health')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('backend-status').classList.add('online');
+                    document.getElementById('backend-text').textContent = 'Online ✅';
+                })
+                .catch(error => {
+                    document.getElementById('backend-status').classList.remove('online');
+                    document.getElementById('backend-text').textContent = 'Offline ❌';
+                });
+        }
+        
+        function checkFrontendStatus() {
+            fetch('http://localhost:4200')
+                .then(response => {
+                    document.getElementById('frontend-status').classList.add('online');
+                    document.getElementById('frontend-text').textContent = 'Online ✅';
+                })
+                .catch(error => {
+                    document.getElementById('frontend-status').classList.remove('online');
+                    document.getElementById('frontend-text').textContent = 'Offline ❌';
+                });
+        }
+        
+        // Check status every 5 seconds
+        checkBackendStatus();
+        checkFrontendStatus();
+        setInterval(checkBackendStatus, 5000);
+        setInterval(checkFrontendStatus, 5000);
+        
+        // Make checklist items clickable
+        document.querySelectorAll('.checklist li').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.onclick = function() {
+                this.classList.toggle('checked');
+            };
+        });
+    </script>
+</body>
+</html>
+

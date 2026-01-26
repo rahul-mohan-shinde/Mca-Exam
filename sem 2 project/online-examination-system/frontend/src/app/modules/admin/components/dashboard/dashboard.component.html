@@ -1,0 +1,53 @@
+<div class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+
+  <div *ngIf="!isLoading" class="dashboard-content">
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Users</h3>
+        <p class="stat-value">{{ statistics.users?.total || 0 }}</p>
+        <small>Active: {{ statistics.users?.active || 0 }}</small>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Exams</h3>
+        <p class="stat-value">{{ statistics.exams?.total || 0 }}</p>
+        <small>Active: {{ statistics.exams?.active || 0 }}</small>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Attempts</h3>
+        <p class="stat-value">{{ statistics.attempts?.total || 0 }}</p>
+        <small>Completed: {{ statistics.attempts?.completed || 0 }}</small>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Questions</h3>
+        <p class="stat-value">{{ statistics.questions?.total || 0 }}</p>
+      </div>
+    </div>
+
+    <!-- Performance Metrics -->
+    <div class="metrics-section">
+      <h2>Performance Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h4>Average Score</h4>
+          <p>{{ performanceMetrics.averageScore || 0 }}%</p>
+        </div>
+        <div class="metric-card">
+          <h4>Pass Rate</h4>
+          <p>{{ performanceMetrics.passRate || 0 }}%</p>
+        </div>
+        <div class="metric-card">
+          <h4>Total Attempts</h4>
+          <p>{{ performanceMetrics.totalAttempts || 0 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

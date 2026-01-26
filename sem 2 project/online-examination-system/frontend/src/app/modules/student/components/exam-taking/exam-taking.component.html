@@ -1,0 +1,90 @@
+<div class="exam-taking">
+  <div class="exam-header">
+    <div class="timer">
+      <span class="timer-label">Time Remaining:</span>
+      <span class="timer-value" [class.warning]="timeRemaining < 300">{{ formatTime(timeRemaining) }}</span>
+    </div>
+    <button class="btn btn-primary" (click)="submitExam()">Submit Exam</button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading exam...</div>
+
+  <div *ngIf="!isLoading && questions.length > 0" class="exam-content">
+    <!-- Question Navigation -->
+    <div class="question-nav">
+      <div *ngFor="let q of questions; let i = index" 
+           class="question-nav-item"
+           [class.active]="i === currentQuestionIndex"
+           [class.answered]="answers.has(q._id)"
+           (click)="goToQuestion(i)">
+        {{ i + 1 }}
+      </div>
+    </div>
+
+    <!-- Current Question -->
+    <div class="question-container">
+      <div class="question-header">
+        <h3>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h3>
+        <span class="marks">Marks: {{ currentQuestion.marks }}</span>
+      </div>
+
+      <div class="question-text">
+        {{ currentQuestion.question_text }}
+      </div>
+
+      <!-- MCQ Options -->
+      <div *ngIf="currentQuestion.question_type === 'MCQ'" class="options">
+        <div *ngFor="let option of currentQuestion.options" 
+             class="option"
+             [class.selected]="answers.get(currentQuestion._id)?.selected_option_id === option._id"
+             (click)="saveAnswer(currentQuestion._id, { selected_option_id: option._id })">
+          <input type="radio" 
+                 [name]="'question_' + currentQuestion._id"
+                 [value]="option._id"
+                 [checked]="answers.get(currentQuestion._id)?.selected_option_id === option._id"
+                 (change)="saveAnswer(currentQuestion._id, { selected_option_id: option._id })">
+          <label>{{ option.option_text }}</label>
+        </div>
+      </div>
+
+      <!-- True/False -->
+      <div *ngIf="currentQuestion.question_type === 'TRUE_FALSE'" class="options">
+        <div class="option" 
+             [class.selected]="answers.get(currentQuestion._id)?.answer_text === 'true'"
+             (click)="saveAnswer(currentQuestion._id, { answer_text: 'true' })">
+          <input type="radio" 
+                 [name]="'truefalse_' + currentQuestion._id" 
+                 value="true"
+                 [checked]="answers.get(currentQuestion._id)?.answer_text === 'true'"
+                 (change)="saveAnswer(currentQuestion._id, { answer_text: 'true' })"> True
+        </div>
+        <div class="option"
+             [class.selected]="answers.get(currentQuestion._id)?.answer_text === 'false'"
+             (click)="saveAnswer(currentQuestion._id, { answer_text: 'false' })">
+          <input type="radio" 
+                 [name]="'truefalse_' + currentQuestion._id" 
+                 value="false"
+                 [checked]="answers.get(currentQuestion._id)?.answer_text === 'false'"
+                 (change)="saveAnswer(currentQuestion._id, { answer_text: 'false' })"> False
+        </div>
+      </div>
+
+      <!-- Short Answer / Essay -->
+      <div *ngIf="currentQuestion.question_type === 'SHORT_ANSWER' || currentQuestion.question_type === 'ESSAY'">
+        <textarea 
+          class="form-control"
+          rows="5"
+          [value]="answers.get(currentQuestion._id)?.answer_text || ''"
+          (input)="saveAnswer(currentQuestion._id, { answer_text: ($event.target as HTMLTextAreaElement).value })"
+          placeholder="Type your answer here..."></textarea>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="question-nav-buttons">
+        <button class="btn" (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">Previous</button>
+        <button class="btn btn-primary" (click)="nextQuestion()" [disabled]="currentQuestionIndex === questions.length - 1">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+

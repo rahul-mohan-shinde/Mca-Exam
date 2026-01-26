@@ -1,0 +1,96 @@
+.student-dashboard {
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .section {
+    margin-bottom: 40px;
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+  }
+
+  .exams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .exam-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .exam-meta {
+      display: flex;
+      gap: 15px;
+      margin: 15px 0;
+      color: #666;
+      font-size: 14px;
+    }
+  }
+
+  .attempts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .attempt-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .attempt-info {
+      flex: 1;
+
+      h4 {
+        margin: 0 0 5px 0;
+      }
+
+      .status {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+
+        &.status-submitted {
+          background: #d4edda;
+          color: #155724;
+        }
+
+        &.status-in_progress {
+          background: #fff3cd;
+          color: #856404;
+        }
+      }
+    }
+
+    .attempt-meta {
+      display: flex;
+      gap: 15px;
+      margin: 0 20px;
+      color: #666;
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+  }
+}
+

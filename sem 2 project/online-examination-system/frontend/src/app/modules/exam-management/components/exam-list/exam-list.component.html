@@ -1,0 +1,42 @@
+<div class="exam-list">
+  <div class="header">
+    <h2>Exam Management</h2>
+    <button class="btn btn-primary" (click)="createExam()">Create New Exam</button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading exams...</div>
+
+  <div *ngIf="!isLoading" class="exams-container">
+    <div *ngFor="let exam of exams" class="exam-card">
+      <div class="exam-header">
+        <h3>{{ exam.exam_name }}</h3>
+        <span class="status-badge" [ngClass]="'status-' + exam.status.toLowerCase()">
+          {{ exam.status }}
+        </span>
+      </div>
+      
+      <p class="description">{{ exam.description }}</p>
+      
+      <div class="exam-meta">
+        <span>Duration: {{ exam.duration }} minutes</span>
+        <span>Total Marks: {{ exam.total_marks }}</span>
+        <span>Passing Score: {{ exam.passing_score }}</span>
+      </div>
+
+      <div class="exam-dates">
+        <span>Start: {{ exam.start_time | date:'short' }}</span>
+        <span>End: {{ exam.end_time | date:'short' }}</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-sm" (click)="viewExam(exam._id)">Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteExam(exam._id)">Delete</button>
+      </div>
+    </div>
+
+    <div *ngIf="exams.length === 0" class="empty-state">
+      No exams found. Create your first exam!
+    </div>
+  </div>
+</div>
+

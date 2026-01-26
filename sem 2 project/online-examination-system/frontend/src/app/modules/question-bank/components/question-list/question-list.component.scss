@@ -1,0 +1,123 @@
+.question-list {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .questions-container {
+    display: grid;
+    gap: 20px;
+  }
+
+  .question-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+
+      h3 {
+        margin: 0;
+        flex: 1;
+        font-size: 16px;
+      }
+
+      .badge {
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+
+        &.badge-easy {
+          background: #d4edda;
+          color: #155724;
+        }
+
+        &.badge-medium {
+          background: #fff3cd;
+          color: #856404;
+        }
+
+        &.badge-hard {
+          background: #f8d7da;
+          color: #721c24;
+        }
+      }
+    }
+
+    .question-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .options {
+      margin: 15px 0;
+
+      .option {
+        padding: 8px;
+        margin: 5px 0;
+        background: #f8f9fa;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+
+        .correct-badge {
+          color: #28a745;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+  }
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &.btn-primary {
+    background: #667eea;
+    color: white;
+  }
+
+  &.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  &.btn-danger {
+    background: #dc3545;
+    color: white;
+  }
+}
+

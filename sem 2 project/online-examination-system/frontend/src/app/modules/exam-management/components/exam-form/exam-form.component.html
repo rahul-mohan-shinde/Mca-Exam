@@ -1,0 +1,61 @@
+<div class="exam-form">
+  <h2>{{ isEditMode ? 'Edit Exam' : 'Create New Exam' }}</h2>
+
+  <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Exam Name *</label>
+      <input type="text" formControlName="exam_name" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea formControlName="description" rows="3" class="form-control"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Duration (minutes) *</label>
+        <input type="number" formControlName="duration" class="form-control" min="1">
+      </div>
+
+      <div class="form-group">
+        <label>Total Marks *</label>
+        <input type="number" formControlName="total_marks" class="form-control" min="1">
+      </div>
+
+      <div class="form-group">
+        <label>Passing Score *</label>
+        <input type="number" formControlName="passing_score" class="form-control" min="0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Start Time *</label>
+        <input type="datetime-local" formControlName="start_time" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>End Time *</label>
+        <input type="datetime-local" formControlName="end_time" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Status *</label>
+      <select formControlName="status" class="form-control">
+        <option value="DRAFT">Draft</option>
+        <option value="SCHEDULED">Scheduled</option>
+        <option value="ACTIVE">Active</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="examForm.invalid">
+        {{ isEditMode ? 'Update' : 'Create' }} Exam
+      </button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>
+

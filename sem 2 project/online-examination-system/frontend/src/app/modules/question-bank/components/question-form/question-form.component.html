@@ -1,0 +1,71 @@
+<div class="question-form">
+  <h2>{{ isEditMode ? 'Edit Question' : 'Create New Question' }}</h2>
+
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <!-- Question Text -->
+    <div class="form-group">
+      <label>Question Text *</label>
+      <textarea formControlName="question_text" rows="4" class="form-control"></textarea>
+    </div>
+
+    <!-- Question Type -->
+    <div class="form-group">
+      <label>Question Type *</label>
+      <select formControlName="question_type" class="form-control">
+        <option value="MCQ">Multiple Choice (MCQ)</option>
+        <option value="TRUE_FALSE">True/False</option>
+        <option value="SHORT_ANSWER">Short Answer</option>
+        <option value="ESSAY">Essay</option>
+      </select>
+    </div>
+
+    <!-- Category -->
+    <div class="form-group">
+      <label>Category</label>
+      <select formControlName="category_id" class="form-control">
+        <option value="">Select Category</option>
+        <option *ngFor="let cat of categories" [value]="cat._id">{{ cat.category_name }}</option>
+      </select>
+    </div>
+
+    <!-- Difficulty Level -->
+    <div class="form-group">
+      <label>Difficulty Level *</label>
+      <select formControlName="difficulty_level" class="form-control">
+        <option value="EASY">Easy</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HARD">Hard</option>
+      </select>
+    </div>
+
+    <!-- Marks -->
+    <div class="form-group">
+      <label>Marks *</label>
+      <input type="number" formControlName="marks" class="form-control" min="1">
+    </div>
+
+    <!-- Options (for MCQ) -->
+    <div *ngIf="questionForm.get('question_type')?.value === 'MCQ'" class="options-section">
+      <label>Options *</label>
+      <div formArrayName="options">
+        <div *ngFor="let option of options.controls; let i = index" [formGroupName]="i" class="option-row">
+          <input formControlName="text" placeholder="Option text" class="form-control">
+          <label class="checkbox-label">
+            <input type="checkbox" formControlName="is_correct"> Correct
+          </label>
+          <button type="button" (click)="removeOption(i)" class="btn btn-sm btn-danger">Remove</button>
+        </div>
+      </div>
+      <button type="button" (click)="addOption()" class="btn btn-secondary">Add Option</button>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="questionForm.invalid">
+        {{ isEditMode ? 'Update' : 'Create' }} Question
+      </button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>
+

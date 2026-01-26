@@ -1,0 +1,85 @@
+========================================
+  QUICK START - Connection Error Fix
+========================================
+
+Problem: "localhost refused to connect"
+
+Solution: Servers manually start karein
+
+========================================
+METHOD 1: Manual Start (Recommended)
+========================================
+
+STEP 1: Backend Start
+---------------------
+1. Command Prompt ya PowerShell open karein
+2. Type karein:
+   
+   cd "C:\Users\rahul\Desktop\sem 2 project\online-examination-system\backend"
+   npm run dev
+
+3. Wait karein for: "Server running on http://localhost:3000"
+4. YE WINDOW MAT BAND KARO!
+
+STEP 2: Frontend Start (NEW TERMINAL)
+--------------------------------------
+1. NEW Command Prompt ya PowerShell open karein
+2. Type karein:
+   
+   cd "C:\Users\rahul\Desktop\sem 2 project\online-examination-system\frontend"
+   ng serve
+
+3. Wait karein for: "Compiled successfully"
+4. YE WINDOW BHI MAT BAND KARO!
+
+STEP 3: Browser Mein Open
+---------------------------
+http://localhost:4200
+
+========================================
+METHOD 2: Use Batch File
+========================================
+
+Double-click: START_SERVERS_MANUAL.bat
+
+Ye automatically dono servers start karega.
+DONO WINDOWS OPEN RAKHNA - MAT BAND KARO!
+
+========================================
+VERIFICATION
+========================================
+
+Backend Check:
+http://localhost:3000/health
+Should show: {"status":"OK"}
+
+Frontend Check:
+http://localhost:4200
+Should show: Login page
+
+========================================
+IMPORTANT NOTES
+========================================
+
+1. Dono servers alag terminals mein chahiye
+2. Dono windows open rakhna - mat band karo
+3. Wait karein 30-40 seconds servers start hone ke liye
+4. Agar error aaye to terminal windows check karein
+
+========================================
+COMMON ERRORS
+========================================
+
+Error: "Port already in use"
+Fix: netstat -ano | findstr :3000
+     taskkill /PID <PID> /F
+
+Error: "Cannot find module"
+Fix: npm install (in backend and frontend folders)
+
+Error: "ng: command not found"
+Fix: npm install -g @angular/cli
+     Ya use: npx ng serve
+
+========================================
+

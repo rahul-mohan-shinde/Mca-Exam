@@ -1,0 +1,142 @@
+.exam-taking {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .timer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .timer-label {
+        font-weight: 500;
+      }
+
+      .timer-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #667eea;
+
+        &.warning {
+          color: #dc3545;
+          animation: blink 1s infinite;
+        }
+      }
+    }
+  }
+
+  .question-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+
+    .question-nav-item {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &.active {
+        background: #667eea;
+        color: white;
+        border-color: #667eea;
+      }
+
+      &.answered {
+        background: #d4edda;
+        border-color: #28a745;
+      }
+
+      &:hover {
+        border-color: #667eea;
+      }
+    }
+  }
+
+  .question-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      h3 {
+        margin: 0;
+      }
+
+      .marks {
+        color: #667eea;
+        font-weight: bold;
+      }
+    }
+
+    .question-text {
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .options {
+      margin: 20px 0;
+
+      .option {
+        padding: 15px;
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          border-color: #667eea;
+          background: #f8f9fa;
+        }
+
+        &.selected {
+          border-color: #667eea;
+          background: #e7f0ff;
+        }
+
+        label {
+          margin-left: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .question-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
